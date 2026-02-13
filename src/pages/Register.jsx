@@ -19,7 +19,7 @@ function Register() {
     if (data.success) {
       navigate("/");
     } else {
-      alert(data.message);
+      setError(data.message);
     }
   };
 
@@ -43,6 +43,10 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {/* Tambah error message */}
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
+        )}
         <button
           onClick={register}
           className="w-full bg-purple-600 text-white p-3 rounded-lg font-semibold hover:bg-purple-700 transition"
