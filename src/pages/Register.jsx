@@ -18,6 +18,8 @@ function Register() {
     const data = await res.json();
     if (data.success) {
       navigate("/");
+    } else {
+      alert(data.message);
     }
   };
 
