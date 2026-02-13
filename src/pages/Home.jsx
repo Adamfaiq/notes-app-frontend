@@ -18,7 +18,7 @@ function Home() {
       return;
     }
     fetch(
-      `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}`/api/notes",
+      `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/notes`,
       {
         headers: { Authorization: `Bearer ${token}` },
       },
@@ -29,7 +29,7 @@ function Home() {
 
   const addNote = async () => {
     const res = await fetch(
-      `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}`/api/notes",
+      `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/notes`,
       {
         method: "POST",
         headers: {

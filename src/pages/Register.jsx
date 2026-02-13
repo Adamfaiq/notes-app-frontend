@@ -2,18 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const register = async () => {
     const res = await fetch(
-      `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}`/api/auth/register",
+      `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/auth/register`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ email, password }),
       },
     );
     const data = await res.json();
@@ -28,13 +27,6 @@ function Register() {
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
           Register
         </h1>
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
         <input
           type="email"
           placeholder="Email"
